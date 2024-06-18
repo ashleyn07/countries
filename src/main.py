@@ -2,7 +2,7 @@
 
 
 import requests as r
-
+import json
 def main():
 
     url = 'https://parseapi.back4app.com/classes/Country?limit=10&include=continent&keys=name,capital,continent,continent.name'
@@ -32,7 +32,27 @@ def main():
     for country in response['results']:
         continent_count[country['continent']['name']] += 1
     print("Continent Count: ", continent_count.items())
+
+    # country_info = open('countries.json', 'w')                              #
+    # country_info.write(f"{json.dumps(continent_count, indent=2)}")          #
+    # country_info.close()                                                    #
+    #                                                                         #
+    # country_count = {'name': 0}                                             #
+    # print(f"number of countries with letter y: {len(response['results'])}") #
+    # for countries in response['results']:                                   #
+    #                                                                   #
+        # if countries['name'] += 1                             #
+    #                                                           #
+    # print("countries with letter y:", country_count.items())  #
+    #                                                           #
+    # name_info = open('countries.jason', 'w')                  #
+    # name_info.write(f"{json.dumps(country_count, indent=4)}") #
+    # name_info.close()                                         #
+        
+        
     
+
+
     
 
     
