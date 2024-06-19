@@ -28,28 +28,38 @@ def main():
 
 
     continent_count = {"North America": 0, "South America": 0, "Europe": 0, "Africa": 0, "Asia": 0, "Antarctica": 0, "Australia": 0, "Oceania": 0}
-    print(f" number of countries: {len(response['results'])}")
     for country in response['results']:
         continent_count[country['continent']['name']] += 1
-    print("Continent Count: ", continent_count.items())
 
-    # country_info = open('countries.json', 'w')                              #
-    # country_info.write(f"{json.dumps(continent_count, indent=2)}")          #
-    # country_info.close()                                                    #
-    #                                                                         #
-    # country_count = {'name': 0}                                             #
-    # print(f"number of countries with letter y: {len(response['results'])}") #
-    # for countries in response['results']:                                   #
-    #                                                                   #
-        # if countries['name'] += 1                             #
-    #                                                           #
-    # print("countries with letter y:", country_count.items())  #
-    #                                                           #
-    # name_info = open('countries.jason', 'w')                  #
-    # name_info.write(f"{json.dumps(country_count, indent=4)}") #
-    # name_info.close()                                         #
-        
-        
+
+    country_info = open('countries.json', 'w')                              
+    country_info.write(f"{json.dumps(continent_count, indent=2)}")          
+    country_info.close()                                                    
+
+    country_count = 0
+    for country in response['results']:
+        if "y" in country['name']:
+            country_count += 1
+
+    country_name = open('countries_with_y.json', 'w')
+    country_name.write(f"{country_count}")
+    country_name.close()
+
+   # print(json.dumps(response, indent=4))
+    countries_e_cap = dict()
+    for country in response['results']:
+        capital = country['capital']
+        if 'e' in capital:
+            capital = country['capital']
+            country_name = country['name']
+            countries_e_cap.update({country_name: capital})
+
+            if len(countries_e_cap) == 6:
+                break 
+                         
+    capital_name = open('6_countries_with_e.json', 'w')
+    capital_name.write(f"{json.dumps(countries_e_cap, indent=4)}")
+    capital_name.close()
     
 
 
