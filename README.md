@@ -1,7 +1,7 @@
 # API for countries to practice using API's.
 - first time using API
 
-## Get and store the number of countries that have a letter "Y" in the name.
+### Get and store the number of countries on each continent.
 - add url
 - make sure status code is 200 (try/except)
 - stored as dictionary
@@ -17,7 +17,7 @@
 - open, write, close file
 
 
-#### Get and store the capitals of six countries that start with the letter "E"
+### Get and store the capitals of six countries that start with the letter "E"
 - set as dictionary
 - set variable 
 - look for the specific letter in the api
